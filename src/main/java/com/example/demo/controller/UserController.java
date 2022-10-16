@@ -17,8 +17,8 @@ public class UserController {
         return "test get mapping data";
     }
     @PostMapping("/saveUser")
-    public String saveUser(@RequestBody UserDTO userDTO){
-        return "test post mapping";
+    public UserDTO saveUser(@RequestBody UserDTO userDTO){
+       return userService.saveUser(userDTO);
     }
     @PutMapping("/updateUser")
     public String updateUser(){
