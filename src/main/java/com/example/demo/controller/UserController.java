@@ -12,6 +12,10 @@ public class UserController {
     }
     @PostMapping("/saveUser")
     public String saveUser(){
-        return "test save mapping";
+        return "test post mapping";
+    }
+    @PutMapping("/updateUser")
+    public String updateUser(){
+        return "test put mapping";
     }
 }
