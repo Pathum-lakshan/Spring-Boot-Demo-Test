@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,7 +12,7 @@ public class UserController {
         return "test get mapping data";
     }
     @PostMapping("/saveUser")
-    public String saveUser(){
+    public String saveUser(@RequestBody UserDTO userDTO){
         return "test post mapping";
     }
     @PutMapping("/updateUser")
