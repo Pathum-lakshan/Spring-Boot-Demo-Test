@@ -18,4 +18,8 @@ public class UserController {
     public String updateUser(){
         return "test put mapping";
     }
+    @DeleteMapping("/deleteUser")
+    public String deleteUser(){
+        return "test delete mapping";
+    }
 }
