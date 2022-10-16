@@ -16,6 +16,11 @@ public class UserController {
     public String getUser(){
         return "test get mapping data";
     }
+    /*{
+        "id":1,
+            "name":"pathum",
+            "address":"colombo"
+    }*/
     @PostMapping("/saveUser")
     public UserDTO saveUser(@RequestBody UserDTO userDTO){
        return userService.saveUser(userDTO);
