@@ -26,11 +26,11 @@ public class UserController {
        return userService.saveUser(userDTO);
     }
     @PutMapping("/updateUser")
-    public String updateUser(){
-        return "test put mapping";
+    public UserDTO updateUser(@RequestBody UserDTO userDTO){
+        return userService.updateUser(userDTO);
     }
     @DeleteMapping("/deleteUser")
-    public String deleteUser(){
-        return "test delete mapping";
+    public UserDTO deleteUser(@RequestBody UserDTO userDTO){
+        return userService.deleteUser(userDTO);
     }
 }
