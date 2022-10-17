@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,21 +26,26 @@ public class UserService {
     private UserRepo userRepo;
     @Autowired
     private ModelMapper modelMapper;
-    public UserDTO saveUser(UserDTO userDTO){
+
+    public UserDTO saveUser(UserDTO userDTO) {
         userRepo.save(modelMapper.map(userDTO, User.class));
         return userDTO;
     }
-    public UserDTO updateUser(UserDTO userDTO){
-        userRepo.save(modelMapper.map(userDTO,User.class));
+
+    public UserDTO updateUser(UserDTO userDTO) {
+        userRepo.save(modelMapper.map(userDTO, User.class));
         return userDTO;
     }
-    public UserDTO deleteUser(UserDTO userDTO){
-        userRepo.delete(modelMapper.map(userDTO,User.class));
+
+    public UserDTO deleteUser(UserDTO userDTO) {
+        userRepo.delete(modelMapper.map(userDTO, User.class));
         return userDTO;
     }
-    public List<UserDTO> getAllUser(){
+
+    public List<UserDTO> getAllUser() {
         List<User> all = userRepo.findAll();
 
-        return modelMapper.map(all,new TypeToken<List<UserDTO>>(){}.getType());
+        return modelMapper.map(all, new TypeToken<List<UserDTO>>() {
+        }.getType());
     }
 }
