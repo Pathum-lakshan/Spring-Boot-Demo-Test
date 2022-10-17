@@ -4,6 +4,7 @@ import com.example.demo.dto.UserDTO;
 import com.example.demo.entity.User;
 import com.example.demo.repo.UserRepo;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,11 +41,7 @@ public class UserService {
     }
     public List<UserDTO> getAllUser(){
         List<User> all = userRepo.findAll();
-        List<UserDTO> userDTOS = new ArrayList<>();
-        for (User user:all
-             ) {
-            userDTOS.add(modelMapper.map(user,UserDTO.class));
-        }
-        return userDTOS;
+
+        return modelMapper.map(all,new TypeToken<List<UserDTO>>(){}.getType());
     }
 }

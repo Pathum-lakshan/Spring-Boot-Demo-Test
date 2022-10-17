@@ -18,11 +18,6 @@ public class UserController {
     public List<UserDTO> getUser(){
         return userService.getAllUser();
     }
-    /*{
-        "id":1,
-            "name":"pathum",
-            "address":"colombo"
-    }*/
     @PostMapping("/saveUser")
     public UserDTO saveUser(@RequestBody UserDTO userDTO){
        return userService.saveUser(userDTO);
