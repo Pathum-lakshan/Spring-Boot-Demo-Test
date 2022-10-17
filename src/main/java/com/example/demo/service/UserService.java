@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ALE IS TER
@@ -35,5 +37,14 @@ public class UserService {
     public UserDTO deleteUser(UserDTO userDTO){
         userRepo.delete(modelMapper.map(userDTO,User.class));
         return userDTO;
+    }
+    public List<UserDTO> getAllUser(){
+        List<User> all = userRepo.findAll();
+        List<UserDTO> userDTOS = new ArrayList<>();
+        for (User user:all
+             ) {
+            userDTOS.add(modelMapper.map(user,UserDTO.class));
+        }
+        return userDTOS;
     }
 }
