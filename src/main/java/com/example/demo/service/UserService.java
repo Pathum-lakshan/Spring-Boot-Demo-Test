@@ -54,5 +54,8 @@ public class UserService {
     public UserDTO getUserByIdAndAddress(String id , String address){
         return modelMapper.map(userRepo.getUserByUserIdAndAddress(id,address),UserDTO.class);
     }
+    public int updateUserNameById(String name , String id){
+        return userRepo.updateUserNameById(name,id);
+    }
 
 }

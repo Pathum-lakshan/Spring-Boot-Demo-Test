@@ -38,5 +38,10 @@ public class UserController {
     public UserDTO getUserByIdAndAddress(@PathVariable String id, @PathVariable String address){
         return userService.getUserByIdAndAddress(id,address);
     }
+    @PutMapping("/updateUserById/{name}/{id}")
+    public int updateUserById(@PathVariable String name, @PathVariable String id){
+        return userService.updateUserNameById(name,id);
+    }
+
 
 }
