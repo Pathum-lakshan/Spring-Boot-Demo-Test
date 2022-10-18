@@ -19,7 +19,7 @@ public class UserController {
         return userService.getAllUser();
     }
     @PostMapping("/saveUser")
-    public UserDTO saveUser(@RequestBody UserDTO userDTO){
+    public @ResponseBody UserDTO saveUser(@RequestBody UserDTO userDTO){
        return userService.saveUser(userDTO);
     }
     @PutMapping("/updateUser")
