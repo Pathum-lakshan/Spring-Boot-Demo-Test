@@ -48,4 +48,8 @@ public class UserService {
         return modelMapper.map(all, new TypeToken<List<UserDTO>>() {
         }.getType());
     }
+    public UserDTO getUserById(String id){
+        return modelMapper.map(userRepo.getUserByUserID(id),UserDTO.class);
+    }
+
 }
