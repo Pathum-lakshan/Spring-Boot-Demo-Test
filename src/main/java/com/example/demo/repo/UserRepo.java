@@ -15,4 +15,6 @@ import org.springframework.data.jpa.repository.Query;
 public interface UserRepo extends JpaRepository<User,Integer> {
     @Query(value = "SELECT * FROM user WHERE id= ?1",nativeQuery = true)
     User getUserByUserID(String id);
+    @Query(value = "SELECT * FROM user WHERE id= ?1 AND address=?2",nativeQuery = true)
+    User getUserByUserIdAndAddress(String id , String address);
 }
