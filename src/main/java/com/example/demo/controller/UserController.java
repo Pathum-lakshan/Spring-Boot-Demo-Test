@@ -42,6 +42,8 @@ public class UserController {
     public int updateUserById(@PathVariable String name, @PathVariable String id){
         return userService.updateUserNameById(name,id);
     }
-
-
+    @GetMapping("/testRequestParams")
+    public void testRequestParams (@RequestParam(value = "test", required = false) String test){
+        System.out.println(test);
+    }
 }
