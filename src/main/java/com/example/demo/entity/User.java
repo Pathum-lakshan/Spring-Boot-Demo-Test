@@ -10,7 +10,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@NamedStoredProcedureQuery(name = "getAllUser", procedureName = "GetUser")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(name = "getAllUser", procedureName = "GetUser"),
+        @NamedStoredProcedureQuery(name = "getAllUserByID", procedureName = "GetUserByID", parameters = {@StoredProcedureParameter(mode = ParameterMode.IN,name = "id",type=Integer.class)} )
+})
 public class User {
     @Id
     private int id;
@@ -18,25 +21,3 @@ public class User {
     private String address;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-@NamedStoredProcedureQuery(name = "secondProcedure", procedureName = "getTicketsByCatagory", parameters = {
-        @StoredProcedureParameter(mode = ParameterMode.IN, name = "tcatagory", type = String.class) }) })
-        */
