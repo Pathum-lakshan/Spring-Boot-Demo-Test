@@ -8,6 +8,8 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -27,6 +29,9 @@ public class UserService {
     @Autowired
     private ModelMapper modelMapper;
 
+
+    @PersistenceContext
+    private EntityManager entityManager;
     public UserDTO saveUser(UserDTO userDTO) {
         userRepo.save(modelMapper.map(userDTO, User.class));
         return userDTO;
@@ -43,8 +48,9 @@ public class UserService {
     }
 
     public List<UserDTO> getAllUser() {
-        List<User> all = userRepo.findAll();
-        
+
+        List<User> all = entityManager.createNamedStoredProcedureQuery("getAllUser").getResultList();
+
         return modelMapper.map(all, new TypeToken<List<UserDTO>>() {
         }.getType());
     }
