@@ -55,7 +55,9 @@ public class UserService {
         }.getType());
     }
     public UserDTO getUserById(String id){
-        return modelMapper.map(userRepo.getUserByUserID(id),UserDTO.class);
+        List resultList = entityManager.createNamedStoredProcedureQuery("GetUserByAddress").setParameter("ad", id).getResultList();
+        System.out.println(resultList);
+        return new UserDTO();
     }
     public UserDTO getUserByIdAndAddress(String id , String address){
         return modelMapper.map(userRepo.getUserByUserIdAndAddress(id,address),UserDTO.class);

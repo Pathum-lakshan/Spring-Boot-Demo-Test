@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Data
 @NamedStoredProcedureQueries({
         @NamedStoredProcedureQuery(name = "getAllUser", procedureName = "GetUser"),
-        @NamedStoredProcedureQuery(name = "getAllUserByID", procedureName = "GetUserByID", parameters = {@StoredProcedureParameter(mode = ParameterMode.IN,name = "id",type=Integer.class)} )
+        @NamedStoredProcedureQuery(name = "GetUserByAddress", procedureName = "GetUserByAddress", parameters = {@StoredProcedureParameter(mode = ParameterMode.IN,name = "ad",type=String.class)} )
 })
 public class User {
     @Id
