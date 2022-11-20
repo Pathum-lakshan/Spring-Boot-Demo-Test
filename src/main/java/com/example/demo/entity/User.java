@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@NamedStoredProcedureQuery()
+@NamedStoredProcedureQuery(name = "getAllUser", procedureName = "GetUser")
 public class User {
     @Id
     private int id;
@@ -38,4 +38,5 @@ public class User {
 
 /*
 @NamedStoredProcedureQuery(name = "secondProcedure", procedureName = "getTicketsByCatagory", parameters = {
-        @StoredProcedureParameter(mode = ParameterMode.IN, name = "tcatagory", type = String.class) }) })*/
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "tcatagory", type = String.class) }) })
+        */

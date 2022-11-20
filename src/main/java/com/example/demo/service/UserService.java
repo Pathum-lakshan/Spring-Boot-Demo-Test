@@ -44,7 +44,7 @@ public class UserService {
 
     public List<UserDTO> getAllUser() {
         List<User> all = userRepo.findAll();
-
+        
         return modelMapper.map(all, new TypeToken<List<UserDTO>>() {
         }.getType());
     }
